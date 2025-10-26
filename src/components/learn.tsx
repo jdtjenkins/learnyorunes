@@ -18,7 +18,6 @@ export function Learn() {
     }
 
     const onSubmit = (value: string) => {
-        console.log("awdawd")
         if (value.toLowerCase() === rune()?.toLowerCase()) {
             setCorrect(true)
         } else {
