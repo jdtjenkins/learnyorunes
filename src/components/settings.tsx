@@ -5,6 +5,7 @@ const SETTINGS_ID = "settings"
 
 export const [ settings, setSettings ] = createStore({
     showDescriptions: true,
+    showImages: true,
 })
 
 export function Settings() {
@@ -31,6 +32,19 @@ export function Settings() {
                                         class="toggle"
                                         on:change={() => setSettings({
                                             showDescriptions: !settings.showDescriptions,
+                                        })}
+                                    />
+                                </label>
+                            </li>
+                            <li>
+                                <label class="label">
+                                    Show images
+                                    <input
+                                        type="checkbox"
+                                        checked={settings.showImages}
+                                        class="toggle"
+                                        on:change={() => setSettings({
+                                            showImages: !settings.showImages,
                                         })}
                                     />
                                 </label>

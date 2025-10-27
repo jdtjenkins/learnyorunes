@@ -40,7 +40,9 @@ export function Learn() {
                     <SettingsButton />
                 </header>
                 <div class="w-full h-full flex items-center justify-center flex-col gap-4">
-                    <img src={currentRune().imgUrl} alt={currentRune().rune!} />
+                    <Show when={settings.showImages}>
+                        <img src={currentRune().imgUrl} alt={currentRune().rune!} />
+                    </Show>
 
                     <Show when={settings.showDescriptions}>
                         <p>{ currentRune().description }</p>
