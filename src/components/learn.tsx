@@ -1,5 +1,10 @@
 import { createMemo, createSignal, Show } from "solid-js"
 import { runes } from './consts';
+import {
+    settings,
+    Settings,
+    SettingsButton,
+} from "./settings"
 
 export function Learn() {
     const [rune, setRune] = createSignal<string | null>(null)
@@ -30,10 +35,17 @@ export function Learn() {
     return (
         <>
             <div class="fixed top-0 left-0 w-full h-full p-4 grid grid-rows-[auto_1fr] gap-8">
-                <h1 class="font-title text-2xl text-center font-bold">Who's that runémon?</h1>
+                <header class="flex items-center justify-between">
+                    <h1 class="font-title text-2xl text-center font-bold">Learn yo runes</h1>
+                    <SettingsButton />
+                </header>
                 <div class="w-full h-full flex items-center justify-center flex-col gap-4">
                     <img src={currentRune().imgUrl} alt={currentRune().rune!} />
-                    <p>{ currentRune().description }</p>
+
+                    <Show when={settings.showDescriptions}>
+                        <p>{ currentRune().description }</p>
+                    </Show>
+
                     <label class="input">
                         <span>Rune name:</span>
                         <input
@@ -64,6 +76,8 @@ export function Learn() {
                 target="_blank"
                 class="fixed bottom-4 left-4 font-light text-sm text-base-content/80"
             >For the cheaters</a>
+
+            <Settings />
         </>
     )
 }
