@@ -38,9 +38,9 @@ export function Settings() {
                         </ul>
                         <label
                             for="drawer-settings"
-                            class="btn btn-ghost"
+                            class="btn btn-error btn-outline"
                         >
-                            Close drawer ❌
+                            Close
                         </label>
                     </div>
                 </div>
